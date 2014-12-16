@@ -41,8 +41,8 @@ class AbjadLineEditor
 {
 private:
 	long									CurrentLine;
-	std::vector<std::string>				LineTable;
-	std::vector<std::string>::iterator		LineIterator;
+	std::vector<std::string>				TableOfLines;
+	std::vector<std::string>::iterator		TableIterator;
 
 public:
 	AbjadLineEditor(void);
@@ -52,15 +52,19 @@ public:
 	void ExecuteOperation(std::string OperationLine);
 
 private:
-	void OpExit();
-	void OpMoveUp();
-	void OpMoveDown();
-	void OpRemoveLine();
-	void OpShowLine();
-	void OpInsertLine();
-	void OpCurrentLine();
-	void OpTopLine();
-	void OpBotLine();
+	void OpExit(void);
+
+	void OpMoveUp(void);
+	void OpMoveDown(void);
+
+	void OpRemoveLine(void);
+	void OpInsertLine(char* LineBuffer);
+
+	void OpShowLine(char* LineBuffer);
+	void OpCurrentLine(char* LineBuffer);
+
+	void OpTopLine(void);
+	void OpBotLine(void);
 };
 
 #endif

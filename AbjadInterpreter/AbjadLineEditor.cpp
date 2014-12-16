@@ -76,7 +76,7 @@ void AbjadLineEditor::ExecuteOperation(std::string OperationLine)
 			break;
 			
 		case 'I' :
-			OpInsertLine();
+			OpInsertLine(LineBuffer);
 			break;
 
 		case 'R' :
@@ -84,11 +84,11 @@ void AbjadLineEditor::ExecuteOperation(std::string OperationLine)
 			break;
 
 		case 'S' :
-			OpShowLine();
+			OpShowLine(LineBuffer);
 			break;
 
 		case 'C' :
-			OpCurrentLine();
+			OpCurrentLine(LineBuffer);
 			break;
 
 		case 'T':
@@ -104,7 +104,44 @@ void AbjadLineEditor::ExecuteOperation(std::string OperationLine)
 //---------------------------------------------------------------
 // Q		: Exit.	
 void AbjadLineEditor::OpExit()
-{}
+{
+	exit(0);
+}
+
+//---------------------------------------------------------------
+// I		: Place the editor on Insert mode whence lines may be entered.
+void AbjadLineEditor::OpInsertLine(char* LineBuffer)
+{
+	std::string LineToInsert;
+
+	int LineNumber  = CurrentLine + 1;
+	int StartNumber = LineNumber;
+
+	while( true )
+	{
+		// Readies the new line to reading from stream.
+		CurrentLine++;
+		sprintf(LineBuffer, "%8d", LineNumber + 1);
+		std::cout << LineBuffer;
+		std::getline(std::cin, LineToInsert);
+
+		// Once at the EOF, break from the loop.
+		if( std::cin.eof() )
+		{
+			break;
+		}
+
+		// Insert the new line into our vector of lines.
+		TableOfLines.insert(TableOfLines.begin() + CurrentLine, LineToInsert);
+
+		// Next line.
+		LineNumber++;
+	}
+
+	// Clear inputs stream and saves the current line back.
+	std::cin.clear();
+	CurrentLine = StartNumber;
+}
 
 //---------------------------------------------------------------
 // U		: Move one line up.
@@ -122,30 +159,73 @@ void AbjadLineEditor::OpMoveDown()
 // R		: Remove current line.
 // Rn		: Remove n lines from current line position.
 void AbjadLineEditor::OpRemoveLine()
-{}
+{
+	if ( (CurrentLine + 1) == (TableOfLines.size()) )
+	{
+		if( CurrentLine == 0 )
+		{
+			TableOfLines.erase(TableOfLines.begin() + CurrentLine);
+			CurrentLine = -1;
+
+			return;
+		}
+		
+		std::cout << "At the end of file" << std::endl;
+		return;
+	}
+}
 
 //---------------------------------------------------------------
 // S		: Show all lines.
 // Sn		: Shown the next n lines
-void AbjadLineEditor::OpShowLine()
-{}
+void AbjadLineEditor::OpShowLine(char* LineBuffer)
+{
+	std::string		ThisLine;
+	int				LineNumber = 1;
 
-//---------------------------------------------------------------
-// I		: Place the editor on Insert mode whence lines may be entered.
-void AbjadLineEditor::OpInsertLine()
-{}
+	TableIterator = TableOfLines.begin();
+	while( TableIterator != TableOfLines.end() )
+	{
+		ThisLine = *(TableIterator);
+
+		if( TableIterator == TableOfLines.begin() + CurrentLine )
+		{
+			sprintf(LineBuffer, "%8d*", LineNumber++);
+		}
+		else
+		{
+			sprintf(LineBuffer, "%8d", LineNumber++);
+		}
+
+		std::cout << LineBuffer << ThisLine << std::endl;
+		++TableIterator;
+	}
+
+	return;
+}
 
 //---------------------------------------------------------------
 // C		: Display current line.
-void AbjadLineEditor::OpCurrentLine()
-{}
+void AbjadLineEditor::OpCurrentLine(char* LineBuffer)
+{
+	sprintf(LineBuffer, "%8d", CurrentLine + 1);
+	std::cout << LineBuffer << TableOfLines[CurrentLine] << std::endl;
+
+	return;
+}
 
 //---------------------------------------------------------------
 // T		: Display top line
 void AbjadLineEditor::OpTopLine()
-{}
+{
+	CurrentLine = -1;
+	return;
+}
 
 //---------------------------------------------------------------
 // B		: Display bottom line
 void AbjadLineEditor::OpBotLine()
-{}
+{
+	CurrentLine = TableOfLines.size();
+	return;
+}
