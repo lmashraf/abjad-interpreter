@@ -79,17 +79,34 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbjadEnums.h" />
     <ClInclude Include="AbjadLineEditor.h" />
+    <ClInclude Include="BaseToken.h" />
+    <ClInclude Include="IntegerToken.h" />
+    <ClInclude Include="KeywordToken.h" />
+    <ClInclude Include="Line.h" />
+    <ClInclude Include="LineParser.h" />
+    <ClInclude Include="LiteralToken.h" />
+    <ClInclude Include="PunctuationToken.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SymbolToken.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbjadInterpreter.cpp" />
     <ClCompile Include="AbjadLineEditor.cpp" />
+    <ClCompile Include="BaseToken.cpp" />
+    <ClCompile Include="IntegerToken.cpp" />
+    <ClCompile Include="KeywordToken.cpp" />
+    <ClCompile Include="Line.cpp" />
+    <ClCompile Include="LineParser.cpp" />
+    <ClCompile Include="LiteralToken.cpp" />
+    <ClCompile Include="PunctuationToken.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SymbolToken.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

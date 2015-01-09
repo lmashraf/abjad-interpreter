@@ -15,6 +15,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\AbjadParser">
+      <UniqueIdentifier>{72a444c3-9028-4057-a0f5-ec781e58f651}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AbjadParser\AbjadTokens">
+      <UniqueIdentifier>{2de9ffd7-7ad4-4e7f-9481-f230febaa7ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AbjadParser\AbjadEnums">
+      <UniqueIdentifier>{8c5e5320-6b94-44db-9ae6-f0ec9382f340}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -29,6 +38,33 @@
     <ClInclude Include="targetver.h">
       <Filter>Pre Compiled Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Source Files\AbjadParser</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseToken.h">
+      <Filter>Source Files\AbjadParser\AbjadTokens</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolToken.h">
+      <Filter>Source Files\AbjadParser\AbjadTokens</Filter>
+    </ClInclude>
+    <ClInclude Include="KeywordToken.h">
+      <Filter>Source Files\AbjadParser\AbjadTokens</Filter>
+    </ClInclude>
+    <ClInclude Include="IntegerToken.h">
+      <Filter>Source Files\AbjadParser\AbjadTokens</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteralToken.h">
+      <Filter>Source Files\AbjadParser\AbjadTokens</Filter>
+    </ClInclude>
+    <ClInclude Include="PunctuationToken.h">
+      <Filter>Source Files\AbjadParser\AbjadTokens</Filter>
+    </ClInclude>
+    <ClInclude Include="LineParser.h">
+      <Filter>Source Files\AbjadParser</Filter>
+    </ClInclude>
+    <ClInclude Include="AbjadEnums.h">
+      <Filter>Source Files\AbjadParser\AbjadEnums</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbjadInterpreter.cpp">
@@ -39,6 +75,30 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Pre Compiled Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>Source Files\AbjadParser</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseToken.cpp">
+      <Filter>Source Files\AbjadParser\AbjadTokens</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolToken.cpp">
+      <Filter>Source Files\AbjadParser\AbjadTokens</Filter>
+    </ClCompile>
+    <ClCompile Include="KeywordToken.cpp">
+      <Filter>Source Files\AbjadParser\AbjadTokens</Filter>
+    </ClCompile>
+    <ClCompile Include="IntegerToken.cpp">
+      <Filter>Source Files\AbjadParser\AbjadTokens</Filter>
+    </ClCompile>
+    <ClCompile Include="LiteralToken.cpp">
+      <Filter>Source Files\AbjadParser\AbjadTokens</Filter>
+    </ClCompile>
+    <ClCompile Include="PunctuationToken.cpp">
+      <Filter>Source Files\AbjadParser\AbjadTokens</Filter>
+    </ClCompile>
+    <ClCompile Include="LineParser.cpp">
+      <Filter>Source Files\AbjadParser</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

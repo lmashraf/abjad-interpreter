@@ -14,7 +14,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	while(true)
 	{
 		// Output the command prompt
-		std::cout << "[Abjad]: \t";
+		std::cout << "[Abjad]: ";
 		std::getline(std::cin, OperationLine);
 
 		AbjadEditor.ExecuteOperation(OperationLine);

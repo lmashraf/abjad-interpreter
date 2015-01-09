@@ -5,6 +5,7 @@
 AbjadLineEditor::AbjadLineEditor(void)
 {
 	CurrentLine = -1;
+	BasicParser = new(nothrow) LineParser;
 }
 
 //---------------------------------------------------------------

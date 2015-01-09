@@ -35,36 +35,43 @@
 
 #include <string>
 #include <vector>
+#include <list>
 #include <iostream>
 
+#include "Line.h"
+#include "LineParser.h"
+
+/** Line Editor for our interpreter **/
 class AbjadLineEditor
 {
-private:
-	long									CurrentLine;
-	std::vector<std::string>				TableOfLines;
-	std::vector<std::string>::iterator		TableIterator;
+	private:
+		long							CurrentLine;
+		std::vector<Line*>				TableOfLines;
+		std::vector<Line*>::iterator	TableIterator;
+		LineParser*						BasicParser;
+		
 
-public:
-	AbjadLineEditor(void);
-	~AbjadLineEditor(void);
+	public:
+		AbjadLineEditor(void);
+		~AbjadLineEditor(void);
 
-public:
-	void ExecuteOperation(std::string OperationLine);
+	public:
+		void ExecuteOperation(std::string OperationLine);
 
-private:
-	void OpExit(void);
+	private:
+		void OpExit(void);
 
-	void OpMoveUp(void);
-	void OpMoveDown(void);
+		void OpMoveUp(void);
+		void OpMoveDown(void);
 
-	void OpRemoveLine(void);
-	void OpInsertLine(char* LineBuffer);
+		void OpRemoveLine(void);
+		void OpInsertLine(char* LineBuffer);
 
-	void OpShowLine(char* LineBuffer);
-	void OpCurrentLine(char* LineBuffer);
+		void OpShowLine(char* LineBuffer);
+		void OpCurrentLine(char* LineBuffer);
 
-	void OpTopLine(void);
-	void OpBotLine(void);
+		void OpTopLine(void);
+		void OpBotLine(void);
 };
 
 #endif
