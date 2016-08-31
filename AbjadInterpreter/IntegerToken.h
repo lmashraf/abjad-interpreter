@@ -1,15 +1,15 @@
-
-#ifndef __ABJAD_INTEGERTOKEN_H__
-#define __ABJAD_INTEGERTOKEN_H__
+#pragma once
 
 #include "BaseToken.h"
 
-// Tokens that represent integers
+//--------------------------------------------------------------------------------------------------
+
+/** Tokens that represent integers **/
 class IntegerToken : public BaseToken
 {
-	public:
-		IntegerToken(void);
-		~IntegerToken(void);
+public:
+    IntegerToken( );
+    ~IntegerToken( );
 };
 
-#endif
+//--------------------------------------------------------------------------------------------------

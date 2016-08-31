@@ -1,15 +1,15 @@
-
-#ifndef __ABJAD_KEYWORDTOKEN_H__
-#define __ABJAD_KEYWORDTOKEN_H__
+#pragma once
 
 #include "BaseToken.h"
 
-// Tokens that represent keywords
+//--------------------------------------------------------------------------------------------------
+
+/** Tokens that represent keywords **/
 class KeywordToken : public BaseToken
 {
-	public:
-		KeywordToken(void);
-		~KeywordToken(void);
+public:
+    KeywordToken( );
+    ~KeywordToken( );
 };
 
-#endif
+//--------------------------------------------------------------------------------------------------

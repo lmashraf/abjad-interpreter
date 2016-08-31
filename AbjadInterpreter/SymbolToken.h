@@ -1,15 +1,15 @@
-
-#ifndef __ABJAD_SYMBOLTOKEN_H__
-#define __ABJAD_SYMBOLTOKEN_H__
+#pragma once
 
 #include "BaseToken.h"
 
-// Tokens that may contain a symbol
+//--------------------------------------------------------------------------------------------------
+
+/** Tokens that may contain a symbol **/
 class SymbolToken : public BaseToken
 {
-	public:
-		SymbolToken(void);
-		~SymbolToken(void);
+public:
+    SymbolToken( );
+    ~SymbolToken( );
 };
 
-#endif
+//--------------------------------------------------------------------------------------------------
