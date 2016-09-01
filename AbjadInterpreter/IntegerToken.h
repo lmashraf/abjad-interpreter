@@ -8,7 +8,12 @@ class IntegerToken : public BaseToken
 {
 public:
     IntegerToken( );
-    ~IntegerToken( );
+
+public:
+    const char* ParseToken( const char* s ) override;
+
+private:
+    std::string Integer;
 };
 
 //--------------------------------------------------------------------------------------------------

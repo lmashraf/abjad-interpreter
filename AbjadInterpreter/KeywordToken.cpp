@@ -4,13 +4,7 @@
 //--------------------------------------------------------------------------------------------------
 
 KeywordToken::KeywordToken( )
-    : BaseToken( AbjadTypes::Tokens::t_symbol )
-{
-}
-
-//--------------------------------------------------------------------------------------------------
-
-KeywordToken::~KeywordToken( )
+    : BaseToken( AbjadTypes::Tokens::t_keyword )
 {
 }
 

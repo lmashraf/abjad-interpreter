@@ -8,7 +8,6 @@ class KeywordToken : public BaseToken
 {
 public:
     KeywordToken( );
-    ~KeywordToken( );
 
 public:
     const char* ParseToken( const char* s ) override;

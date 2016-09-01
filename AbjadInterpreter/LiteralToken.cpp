@@ -4,13 +4,7 @@
 //--------------------------------------------------------------------------------------------------
 
 LiteralToken::LiteralToken( )
-    : BaseToken( AbjadTypes::Tokens::t_symbol )
-{
-}
-
-//--------------------------------------------------------------------------------------------------
-
-LiteralToken::~LiteralToken( )
+    : BaseToken( AbjadTypes::Tokens::t_literal )
 {
 }
 

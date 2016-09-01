@@ -1,6 +1,8 @@
 #pragma once
 
-#include "AbjadEnums.h"
+#include "AbjadTokenTypes.h"
+
+#include <string>
 
 //--------------------------------------------------------------------------------------------------
 /** All tokens must derive from this token type. **/

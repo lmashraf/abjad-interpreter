@@ -9,6 +9,12 @@ class PunctuationToken : public BaseToken
 public:
     PunctuationToken( );
     ~PunctuationToken( );
+
+public:
+    const char* ParseToken( const char* s ) override;
+
+private:
+    std::string Punctuation;
 };
 
 //--------------------------------------------------------------------------------------------------

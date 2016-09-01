@@ -9,6 +9,12 @@ class LiteralToken : public BaseToken
 public:
     LiteralToken( );
     ~LiteralToken( );
+
+public:
+    const char* ParseToken( const char* s ) override;
+
+private:
+    std::string Literal;
 };
 
 //--------------------------------------------------------------------------------------------------

@@ -4,13 +4,7 @@
 //--------------------------------------------------------------------------------------------------
 
 PunctuationToken::PunctuationToken( )
-    : BaseToken( AbjadTypes::Tokens::t_symbol )
-{
-}
-
-//--------------------------------------------------------------------------------------------------
-
-PunctuationToken::~PunctuationToken( )
+    : BaseToken( AbjadTypes::Tokens::t_punctuation )
 {
 }
 

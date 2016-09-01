@@ -42,7 +42,6 @@ class AbjadLineEditor
 {
 public:
     AbjadLineEditor( );
-    ~AbjadLineEditor( );
 
 public:
     void ExecuteOperation( std::string OperationLine );
@@ -64,8 +63,10 @@ private:
 
 private:
     long CurrentLine;
+
     std::vector< Line* > TableOfLines;
     std::vector< Line* >::iterator TableIterator;
+
     LineParser* BasicParser;
 };
 

@@ -9,23 +9,18 @@ AbjadLineEditor::AbjadLineEditor( )
 }
 
 //--------------------------------------------------------------------------------------------------
-AbjadLineEditor::~AbjadLineEditor( )
-{
-}
-
-//--------------------------------------------------------------------------------------------------
 void
 AbjadLineEditor::ExecuteOperation( std::string OperationLine )
 {
     int OperationCount = 0;
 
     char LineBuffer[ 32 ];
+
     unsigned int OperationLineLength;
     unsigned char OperationChar;
 
     // Read the operation from the operation line, if there is none quit.
     OperationLineLength = OperationLine.length( );
-
     if ( OperationLineLength == 0 )
     {
         return;
@@ -41,16 +36,16 @@ AbjadLineEditor::ExecuteOperation( std::string OperationLine )
 
         while ( IndexChar < OperationLineLength )
         {
-            unsigned char ThisChar = OperationLine[ IndexChar++ ];
+            unsigned char CurrentChar = OperationLine[ IndexChar++ ];
 
-            if ( ThisChar >= '0' && ThisChar <= '9' )
+            if ( CurrentChar >= '0' && CurrentChar <= '9' )
             {
-                OperationCount = ( OperationCount * 10 ) + ( ThisChar - '0' );
+                OperationCount = ( OperationCount * 10 ) + ( CurrentChar - '0' );
             }
         }
     }
 
-    // Set default operation count is equal to 1, if not introduced explicitly.
+    // Set default operation count to 1, if not introduced explicitly.
     if ( OperationCount == 0 )
     {
         OperationCount = 1;
@@ -162,6 +157,11 @@ AbjadLineEditor::OpInsertLine( char* LineBuffer )
 void
 AbjadLineEditor::OpMoveUp( )
 {
+    if ( CurrentLine == 0 )
+    {
+        std::cout << "At the top of the file" << std::endl;
+        return;
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -170,6 +170,12 @@ AbjadLineEditor::OpMoveUp( )
 void
 AbjadLineEditor::OpMoveDown( )
 {
+    if ( ( CurrentLine + 1 ) == TableOfLines.size( ) )
+    {
+        std::cout << "At the end of the file" << std::endl;
+        return;
+    }
+}
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -191,6 +197,9 @@ AbjadLineEditor::OpRemoveLine( )
         std::cout << "At the end of file" << std::endl;
         return;
     }
+
+    TableOfLines.erase( TableOfLines.begin( ) + CurrentLine );
+    return;
 }
 
 //--------------------------------------------------------------------------------------------------

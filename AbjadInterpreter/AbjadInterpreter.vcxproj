@@ -79,7 +79,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AbjadEnums.h" />
+    <ClInclude Include="AbjadTokenTypes.h" />
     <ClInclude Include="AbjadLineEditor.h" />
     <ClInclude Include="BaseToken.h" />
     <ClInclude Include="IntegerToken.h" />
@@ -98,7 +98,6 @@
     <ClCompile Include="BaseToken.cpp" />
     <ClCompile Include="IntegerToken.cpp" />
     <ClCompile Include="KeywordToken.cpp" />
-    <ClCompile Include="Line.cpp" />
     <ClCompile Include="LineParser.cpp" />
     <ClCompile Include="LiteralToken.cpp" />
     <ClCompile Include="PunctuationToken.cpp" />
