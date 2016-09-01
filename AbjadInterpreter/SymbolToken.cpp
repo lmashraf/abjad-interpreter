@@ -4,7 +4,7 @@
 //--------------------------------------------------------------------------------------------------
 
 SymbolToken::SymbolToken( )
-    : BaseToken( t_symbol )
+    : BaseToken( AbjadTypes::Tokens::t_symbol )
 {
 }
 
@@ -17,14 +17,14 @@ SymbolToken::~SymbolToken( )
 //--------------------------------------------------------------------------------------------------
 
 const char*
-SymbolToken::ParseToken(const char* s)
+SymbolToken::ParseToken( const char* s )
 {
-
 }
 
 //--------------------------------------------------------------------------------------------------
 
-const char* SymbolToken::GetSymbol(const char* s)
+const char*
+SymbolToken::GetSymbol( const char* s )
 {
     return Symbol.c_str( );
 }

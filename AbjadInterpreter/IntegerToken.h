@@ -3,7 +3,6 @@
 #include "BaseToken.h"
 
 //--------------------------------------------------------------------------------------------------
-
 /** Tokens that represent integers **/
 class IntegerToken : public BaseToken
 {

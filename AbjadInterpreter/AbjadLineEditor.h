@@ -1,8 +1,5 @@
 #pragma once
 
-
-
-
 #include <string>
 #include <vector>
 #include <list>
@@ -43,12 +40,6 @@
 */
 class AbjadLineEditor
 {
-private:
-    long CurrentLine;
-    std::vector< Line* > TableOfLines;
-    std::vector< Line* >::iterator TableIterator;
-    LineParser* BasicParser;
-
 public:
     AbjadLineEditor( );
     ~AbjadLineEditor( );
@@ -70,6 +61,12 @@ private:
 
     void OpTopLine( );
     void OpBotLine( );
+
+private:
+    long CurrentLine;
+    std::vector< Line* > TableOfLines;
+    std::vector< Line* >::iterator TableIterator;
+    LineParser* BasicParser;
 };
 
 //--------------------------------------------------------------------------------------------------

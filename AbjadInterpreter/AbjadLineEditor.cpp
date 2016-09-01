@@ -37,7 +37,7 @@ AbjadLineEditor::ExecuteOperation( std::string OperationLine )
     // Retrieve the operations count if there is any
     if ( OperationLineLength >= 1 )
     {
-        int IndexChar = 1;
+        unsigned int IndexChar = 1;
 
         while ( IndexChar < OperationLineLength )
         {
@@ -117,7 +117,8 @@ AbjadLineEditor::OpExit( )
 void
 AbjadLineEditor::OpInsertLine( char* LineBuffer )
 {
-    std::string LineToInsert;
+    std::string StringToInsert;
+    Line* LineToInsert;
 
     int LineNumber = CurrentLine + 1;
     int StartNumber = LineNumber;
@@ -128,7 +129,7 @@ AbjadLineEditor::OpInsertLine( char* LineBuffer )
         CurrentLine++;
         sprintf( LineBuffer, "%8d", LineNumber + 1 );
         std::cout << LineBuffer;
-        std::getline( std::cin, LineToInsert );
+        std::getline( std::cin, StringToInsert );
 
         // Once at the EOF, break from the loop.
         if ( std::cin.eof( ) )
@@ -136,11 +137,18 @@ AbjadLineEditor::OpInsertLine( char* LineBuffer )
             break;
         }
 
-        // Insert the new line into our vector of lines.
-        TableOfLines.insert( TableOfLines.begin( ) + CurrentLine, LineToInsert );
+        // Write string into line
+        LineToInsert = new ( std::nothrow ) Line;
+        LineToInsert->SourceLine = StringToInsert;
 
-        // Next line.
-        LineNumber++;
+        if ( BasicParser->ParseString( LineToInsert ) )
+        {
+            // Insert the new line into our vector of lines.
+            TableOfLines.insert( TableOfLines.begin( ) + CurrentLine, LineToInsert );
+
+            // Next line.
+            ++LineNumber;
+        }
     }
 
     // Clear inputs stream and saves the current line back.
@@ -198,15 +206,15 @@ AbjadLineEditor::OpShowLine( char* LineBuffer )
 
     while ( TableIterator != TableOfLines.end( ) )
     {
-        ThisLine = *( TableIterator );
+        ThisLine = ( *TableIterator )->SourceLine;
 
         if ( TableIterator == TableOfLines.begin( ) + CurrentLine )
         {
-            sprintf( LineBuffer, "%8d*", LineNumber++ );
+            sprintf( LineBuffer, "%8d*", ++LineNumber );
         }
         else
         {
-            sprintf( LineBuffer, "%8d", LineNumber++ );
+            sprintf( LineBuffer, "%8d", ++LineNumber );
         }
 
         std::cout << LineBuffer << ThisLine << std::endl;

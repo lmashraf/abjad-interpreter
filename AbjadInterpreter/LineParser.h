@@ -1,13 +1,14 @@
 #pragma once
 
+#include "Line.h"
+
 //--------------------------------------------------------------------------------------------------
 
 /** Our ABJAD token line **/
 class LineParser
 {
 public:
-    LineParser( );
-    ~LineParser( );
+    bool ParseString( Line* SourceLine );
 };
 
 //--------------------------------------------------------------------------------------------------

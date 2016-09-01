@@ -3,17 +3,17 @@
 
 //--------------------------------------------------------------------------------------------------
 
-BaseToken::BaseToken( TypeOfToken token )
+BaseToken::BaseToken( AbjadTypes::Tokens token )
 {
     TokenType = token;
 }
 
 //--------------------------------------------------------------------------------------------------
 
-TypeOfToken
+AbjadTypes::Tokens
 BaseToken::GetType( )
 {
-    TokenType;
+    return TokenType;
 }
 
 //--------------------------------------------------------------------------------------------------
