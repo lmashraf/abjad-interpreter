@@ -13,6 +13,27 @@ SymbolToken::SymbolToken( )
 const char*
 SymbolToken::ParseToken( const char* s )
 {
+    Symbol = *s++;
+
+    // Parse the rest of a Symbol (dollar, percent)
+    while ( true )
+    {
+        unsigned char InputChar = *s++;
+
+        if ( isalpha( InputChar ) || isdigit( InputChar ) )
+        {
+            Symbol += InputChar;
+            continue;
+        }
+
+        if ( InputChar == '$' || InputChar == '%' )
+        {
+            Symbol += InputChar;
+            return ++s;
+        }
+
+        return s;
+    }
 }
 
 //--------------------------------------------------------------------------------------------------

@@ -15,6 +15,8 @@ public:
 private:
     static char* Keywords[];
     AbjadTypes::Keywords Keyword;
+
+    static const unsigned int KeywordCount;
 };
 
 //--------------------------------------------------------------------------------------------------
